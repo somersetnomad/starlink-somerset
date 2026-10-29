@@ -4,6 +4,7 @@ description: "Most Somerset houses can fit a Starlink dish without planning perm
 date: 2026-10-29 09:00:00 +0000
 last_modified_at: 2026-10-29 09:00:00 +0000
 template: default
+referral: true
 tags: [Planning, Installation]
 image: https://images.unsplash.com/photo-1755869474404-93861a0dce9b?w=1600&q=75&fm=jpg&fit=crop
 image_base: https://images.unsplash.com/photo-1755869474404-93861a0dce9b

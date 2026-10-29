@@ -35,5 +35,6 @@
 - [[NEEDED]] plan and start date; previous connection; dish mounting and install; typical speeds; weather and evening performance; any Roam use
 
 ## Mode and schedule
-- Mode: review (first 2 posts), then offer auto
-- Cadence: one post per week; weekly scheduled task to be set up after the first post goes live
+- Mode: AUTO (owner chose auto-posting, Oct 2026): publish to main when the quality gate passes
+- Cadence: one post per week, Tuesday morning (scheduled task "Rural Signal weekly post")
+- Referral link in at most 2 posts per calendar month (owner decision); other posts carry no referral link. Process in RUNBOOK.md
