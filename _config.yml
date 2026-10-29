@@ -13,12 +13,38 @@ author:
 referral_url: https://starlink.com/?referral=RC-DF-12222491-12560-83&app_source=share
 utm_source: rural_signal
 
+# Axiom theme settings (mirrors the Ghost theme's custom settings)
+axiom:
+  color_scheme: System      # System, Light or Dark
+  sidebar_label: Field Notes
+  inertial_scroll: "on"     # on or off
+  field_density: Balanced   # Calm, Balanced or Dense
+
+navigation:
+  - label: Guides
+    url: /
+  - label: Topics
+    url: /tags/
+  - label: About
+    url: /about/
+  - label: Disclosure
+    url: /disclosure/
+
 permalink: /:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  footnote_backlink: "↩"
 
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+
+feed:
+  excerpt_only: false
 
 defaults:
   - scope:
@@ -28,11 +54,13 @@ defaults:
       layout: post
   - scope:
       path: ""
+      type: pages
     values:
-      layout: default
+      layout: page
 
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor
+  - assets/axiom/fonts/*-OFL.txt

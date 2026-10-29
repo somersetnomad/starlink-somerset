@@ -1,42 +1,73 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+{%- assign body_class = "page-template" -%}
+{%- if page.layout == "post" -%}{%- assign body_class = "post-template" -%}
+  {%- if page.template -%}{%- assign body_class = body_class | append: " post-template-custom-" | append: page.template -%}{%- endif -%}
+{%- elsif page.url == "/" -%}{%- assign body_class = "home-template" -%}
+{%- elsif page.layout == "tags" -%}{%- assign body_class = "tag-template" -%}{%- endif -%}
+<html lang="{{ site.lang }}" data-scheme="{{ site.axiom.color_scheme | default: 'System' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- comment -%} Resolve the colour scheme before first paint (no flash) {%- endcomment -%}
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var s = (d.getAttribute('data-scheme') || 'System').toLowerCase();
+      var t = null;
+      try { t = localStorage.getItem('axiom-theme'); } catch (e) {}
+      if (!t) {
+        t = (s === 'light' || s === 'dark') ? s
+          : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      }
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preload" href="{{ '/assets/axiom/fonts/newsreader-latin-opsz-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/axiom/fonts/plus-jakarta-sans-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/axiom/css/screen.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/rural.css' | relative_url }}">
+
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32">
+  <link rel="icon" href="{{ '/assets/icons/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+  <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1011" media="(prefers-color-scheme: dark)">
+
   {% seo %}
   {% feed_meta %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  {% if page.json_ld %}{{ page.json_ld }}{% endif %}
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        <span class="brand-mark" aria-hidden="true">◠</span>
-        <span>{{ site.title }}</span>
-      </a>
-      <nav aria-label="Main">
-        <a href="{{ '/' | relative_url }}">Guides</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-        <a href="{{ '/disclosure/' | relative_url }}">Disclosure</a>
-      </nav>
-    </div>
+<body class="{{ body_class }}" data-inertial="{{ site.axiom.inertial_scroll | default: 'on' }}" data-field-density="{{ site.axiom.field_density | default: 'Balanced' }}">
+
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-a" data-blob="a"></div>
+    <div class="blob blob-b" data-blob="b"></div>
+  </div>
+
+  <div id="progress-tracker" aria-hidden="true"></div>
+
+  <header class="mobile-bar" id="mobileBar">
+    <a class="mobile-bar-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <button class="mobile-menu-btn" id="mobileMenuToggle" type="button" aria-label="Toggle index" aria-expanded="false" aria-controls="sidebarNav">
+      Index ☰
+    </button>
   </header>
 
-  <main id="main">
-    {{ content }}
-  </main>
+  <div class="app-shell">
+    {% include sidebar.html %}
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p><strong>{{ site.title }}</strong> is written by {{ site.author.name }}, a Starlink customer in Wincanton, Somerset. It is independent and not affiliated with, or endorsed by, Starlink or SpaceX.</p>
-      <p>Some links are referral links: if you order Starlink through one, we both receive a reward from Starlink. <a href="{{ '/disclosure/' | relative_url }}">How that works</a>.</p>
-      <p class="small">Photos from <a href="https://unsplash.com/?utm_source={{ site.utm_source }}&amp;utm_medium=referral">Unsplash</a>, credited on each page. <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
-    </div>
-  </footer>
+    <main class="content-canvas" id="site-main">
+      {{ content }}
+      {% include site-footer.html %}
+    </main>
+  </div>
+
+  {% include search.html %}
+
+  <script src="{{ '/assets/js/rural.js' | relative_url }}"></script>
+  <script src="{{ '/assets/axiom/js/axiom.js' | relative_url }}"></script>
 </body>
 </html>

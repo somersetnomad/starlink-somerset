@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="article-wrap page">
+  <header class="masthead post-masthead">
+    <canvas class="field-canvas" data-field data-field-scale="0.7" aria-hidden="true"></canvas>
+    <h1 class="monograph-h1">{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="monograph-lead">{{ page.description }}</p>
+    {%- endif %}
+  </header>
+
+  <section class="gh-content chapter-body" id="postContent">
+    {{ content }}
+  </section>
+</article>

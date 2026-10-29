@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="footer-disclosure">
+    <p>{{ site.title }} is written by {{ site.author.name }}, a Starlink customer in Wincanton, Somerset. It is independent and not affiliated with, or endorsed by, Starlink or SpaceX.</p>
+    <p>Some links are referral links: if you're new to Starlink and order through one, we both receive a reward from Starlink. <a href="{{ '/disclosure/' | relative_url }}">How that works</a>.</p>
+  </div>
+  <div class="site-footer-inner">
+    <span>{{ site.title }} &copy; {{ site.time | date: "%Y" }}</span>
+    <nav class="site-footer-nav" aria-label="Secondary">
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/disclosure/' | relative_url }}">Disclosure</a>
+      <a href="{{ '/tags/' | relative_url }}">Topics</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+    <span>Photos via <a href="https://unsplash.com/?utm_source={{ site.utm_source }}&amp;utm_medium=referral">Unsplash</a></span>
+  </div>
+</footer>

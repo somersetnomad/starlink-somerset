@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{%- assign tag_list = site.tags | sort -%}
+<div class="article-wrap">
+  <header class="masthead site-masthead">
+    <canvas class="field-canvas" data-field data-field-scale="0.7" aria-hidden="true"></canvas>
+    <div class="masthead-meta-row">
+      <span>Topics</span>
+      <span>{{ tag_list.size }} {% if tag_list.size == 1 %}topic{% else %}topics{% endif %}</span>
+    </div>
+    <h1 class="monograph-h1">{{ page.title }}</h1>
+    <p class="monograph-lead">{{ page.description }}</p>
+  </header>
+
+  {%- for tag in tag_list %}
+  <section class="tag-group" id="{{ tag[0] | slugify }}" aria-labelledby="tag-{{ tag[0] | slugify }}">
+    <div class="masthead-meta-row tag-group-head">
+      <h2 class="tag-group-title" id="tag-{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+      <span>{{ tag[1].size }} {% if tag[1].size == 1 %}post{% else %}posts{% endif %}</span>
+    </div>
+    <div class="post-feed">
+      {%- for post in tag[1] %}
+        {% include post-card.html %}
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+</div>

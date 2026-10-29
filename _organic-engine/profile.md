@@ -20,6 +20,13 @@
 - Every post discloses the referral link next to the call to action.
 - Site name "Rural Signal" avoids implying a Starlink-owned site.
 
+## Theme and post format
+- Axiom theme, ported to Jekyll (assets/axiom from somersetnomad/axiom-monograp; site layer in assets/css/rural.css and assets/js/rural.js)
+- Format every post per the axiom-post skill: H2 sections (2-6) for the sidebar contents, H3 sub-parts, footnotes ([^n]) for asides, sources and technical detail (about one per 150-300 words), `description` as the one-sentence excerpt (<160 chars), 1-3 `tags` (primary first)
+- Front matter `template`: default (how-to, news), essay (long reflective pieces: margin notes + reading focus) or episode (needs `audio`; "- m:ss Topic" bullets become play buttons; a final "## Transcript" H2 folds)
+- Referral CTA as an `interactive-module cta-module` section with the disclosure line inside it
+- Hero image: `image` (jpg, for feeds and social) plus `image_base`, `image_width`, `image_height`, `image_alt`, `image_credit`
+
 ## Voice
 - Plain, candid, first person, local. Honest about when Starlink is not the answer.
 
