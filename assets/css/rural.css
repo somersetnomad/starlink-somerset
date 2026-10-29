@@ -183,3 +183,13 @@
 .site-search-results .r-text { display: block; font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px; }
 .site-search-results mark { background: var(--accent-highlight); color: inherit; border-radius: 2px; }
 .site-search-empty { padding: 12px 6px; color: var(--text-tertiary); font-size: 0.9rem; }
+
+/* ---------- Fix: centre wide feature images ----------
+   Axiom's `.post-feature { margin: 0 0 48px }` comes after `.kg-width-wide`
+   in screen.css and resets its centring margin, so wide heroes drift right. */
+.post-feature.kg-width-wide { margin-left: calc(50% - min(var(--wide-max-w), 100cqw) / 2); }
+
+/* The flow field canvas reaches 140px past the reading column; between the
+   mobile breakpoint and ~1200px that overruns the canvas area. Clip it there
+   (clip, unlike hidden, keeps the sticky sidebar and scroll spy working). */
+main.content-canvas { overflow-x: clip; }
