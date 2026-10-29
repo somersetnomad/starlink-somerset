@@ -3,12 +3,6 @@ title: About Rural Signal
 description: Who writes Rural Signal, why it exists, and how its guides are researched.
 permalink: /about/
 ---
-<div class="wrap narrow post-body" markdown="1">
-
-<p class="eyebrow" style="padding-top:40px">About</p>
-
-# About Rural Signal
-
 I'm Bala Danmeri. I live in Wincanton, Somerset, and I'm a Starlink customer. I also write science fiction and metaphysical philosophy, and trade as Noor Intelligence.
 
 Rural Signal exists because the answers I wanted before ordering Starlink were scattered across forums, council pages and sales sites. Here I put them in one place, for Somerset homes specifically.
@@ -22,10 +16,8 @@ Rural Signal exists because the answers I wanted before ordering Starlink were s
 
 ## Independence
 
-Rural Signal is not affiliated with, endorsed by, or acting for Starlink or SpaceX. I'm not an installer, reseller or agent. Some links are personal referral links; the [disclosure page](../disclosure/) explains exactly what that means.
+Rural Signal is not affiliated with, endorsed by, or acting for Starlink or SpaceX. I'm not an installer, reseller or agent. Some links are personal referral links; the [disclosure page]({{ '/disclosure/' | relative_url }}) explains exactly what that means.
 
-## Contact
+## Follow and contact
 
-Spotted something out of date? Email [info@baladanmeri.com](mailto:info@baladanmeri.com).
-
-</div>
+New guides appear in the [RSS feed]({{ '/feed.xml' | relative_url }}). Spotted something out of date? Email [info@baladanmeri.com](mailto:info@baladanmeri.com).

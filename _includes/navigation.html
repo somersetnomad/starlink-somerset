@@ -1,0 +1,7 @@
+{%- for item in site.navigation -%}
+{%- assign item_url = item.url | relative_url -%}
+{%- assign here = page.url | relative_url -%}
+<a class="toc-item nav-{{ item.label | slugify }}{% if item_url == here %} nav-current{% endif %}" href="{{ item_url }}"{% if item_url == here %} aria-current="page"{% endif %}>
+  <span class="toc-label">{{ item.label }}</span>
+</a>
+{%- endfor -%}

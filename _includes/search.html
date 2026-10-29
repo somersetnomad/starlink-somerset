@@ -1,0 +1,12 @@
+<div class="site-search" id="siteSearch" role="dialog" aria-modal="true" aria-label="Search the guides" hidden data-index="{{ '/search.json' | relative_url }}">
+  <div class="site-search-scrim" data-search-close></div>
+  <div class="site-search-panel interactive-module">
+    <div class="module-header">
+      <div class="module-title"><span>Search // {{ site.title }}</span><span class="module-pill">⌘K</span></div>
+      <button class="theme-toggle-btn" type="button" data-search-close>Close</button>
+    </div>
+    <label class="visually-hidden" for="siteSearchInput">Search the guides</label>
+    <input class="site-search-input" id="siteSearchInput" type="search" placeholder="Planning, plans, speeds…" autocomplete="off" spellcheck="false">
+    <ol class="site-search-results" id="siteSearchResults" aria-live="polite"></ol>
+  </div>
+</div>

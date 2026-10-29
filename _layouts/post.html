@@ -1,51 +1,114 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header class="post-head wrap narrow">
-    <p class="eyebrow">{{ page.category_label | default: "Guide" }}</p>
-    <h1>{{ page.title }}</h1>
-    <p class="meta">
-      By <a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a>
-      · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-      {% if page.last_modified_at %}· Checked <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%-d %B %Y" }}</time>{% endif %}
-    </p>
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | plus: 1 -%}
+{%- assign primary_tag = page.tags | first -%}
+<article class="article-wrap post{% if page.template %} template-{{ page.template }}{% endif %}">
+
+  <header class="masthead post-masthead">
+    <canvas class="field-canvas" data-field data-field-scale="0.7" aria-hidden="true"></canvas>
+    <div class="chapter-tagline">
+      {%- if primary_tag %}
+      <a class="topic-badge" href="{{ '/tags/' | relative_url }}#{{ primary_tag | slugify }}">{{ primary_tag }}</a>
+      {%- endif %}
+      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d %b %Y" }}</time>
+      <span class="read-estimate">{{ minutes }} min read</span>
+      {%- if page.last_modified_at %}
+      <span class="read-estimate">Checked <time datetime="{{ page.last_modified_at | date: '%Y-%m-%d' }}">{{ page.last_modified_at | date: "%d %b %Y" }}</time></span>
+      {%- endif %}
+    </div>
+    <h1 class="monograph-h1">{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="monograph-lead">{{ page.description }}</p>
+    {%- endif %}
+    <div class="post-byline">
+      <a class="byline-author" href="{{ '/about/' | relative_url }}">
+        <span class="byline-avatar is-placeholder" aria-hidden="true"></span>
+        <span>{{ site.author.name }}</span>
+      </a>
+    </div>
   </header>
 
-  {% if page.image %}
-  <figure class="hero">
-    <img src="{{ page.image }}"
-         srcset="{{ page.image_base }}?w=600&q=75&fm=webp&fit=crop 600w, {{ page.image_base }}?w=1000&q=75&fm=webp&fit=crop 1000w, {{ page.image_base }}?w=1600&q=75&fm=webp&fit=crop 1600w"
-         sizes="(max-width: 1100px) 100vw, 1100px"
-         width="{{ page.image_width }}" height="{{ page.image_height }}"
-         alt="{{ page.image_alt }}" fetchpriority="high">
-    <figcaption class="wrap narrow">{{ page.image_credit }}</figcaption>
+  {%- if page.image_base %}
+  <figure class="post-feature kg-width-wide">
+    <img
+      srcset="{{ page.image_base }}?w=720&amp;q=75&amp;fm=webp&amp;fit=crop 720w,
+              {{ page.image_base }}?w=1200&amp;q=75&amp;fm=webp&amp;fit=crop 1200w,
+              {{ page.image_base }}?w=2000&amp;q=75&amp;fm=webp&amp;fit=crop 2000w"
+      sizes="(max-width: 960px) 100vw, 1040px"
+      src="{{ page.image_base }}?w=1200&amp;q=75&amp;fm=webp&amp;fit=crop"
+      width="{{ page.image_width }}" height="{{ page.image_height }}"
+      alt="{{ page.image_alt }}" fetchpriority="high">
+    {%- if page.image_credit %}
+    <figcaption>{{ page.image_credit }}</figcaption>
+    {%- endif %}
   </figure>
-  {% endif %}
+  {%- endif %}
 
-  <div class="post-body wrap narrow">
+  {%- if page.template == "episode" and page.audio %}
+  <section class="interactive-module episode-player" data-episode>
+    <div class="module-header">
+      <div class="module-title"><span>Listen // {{ page.title }}</span><span class="module-pill">Episode</span></div>
+      {%- if page.audio_duration %}<span class="module-meta">{{ page.audio_duration }}</span>{% endif %}
+    </div>
+    <audio controls preload="metadata" src="{{ page.audio }}"></audio>
+  </section>
+  {%- endif %}
+
+  <section class="gh-content chapter-body" id="postContent">
     {{ content }}
+  </section>
 
-    <aside class="author-box">
-      <p>I'm <strong>{{ site.author.name }}</strong>. I live in Wincanton, Somerset, and I'm a Starlink customer. I write Rural Signal to give neighbours the straight answers I wanted before ordering. <a href="{{ '/about/' | relative_url }}">More about me</a>.</p>
-    </aside>
-  </div>
+  <footer class="post-footer">
+    {%- if page.tags.size > 0 %}
+    <div class="post-tags">
+      {%- for tag in page.tags %}
+      <a class="filter-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+
+    <section class="interactive-module author-module">
+      <div class="module-header">
+        <div class="module-title"><span>Written by // {{ site.author.name }}</span><span class="module-pill">Local customer</span></div>
+      </div>
+      <p class="subscribe-copy">I'm {{ site.author.name }}. I live in Wincanton, Somerset, and I'm a Starlink customer. I write {{ site.title }} to give neighbours the straight answers I wanted before ordering.</p>
+      <a class="theme-toggle-btn" href="{{ '/about/' | relative_url }}">About me</a>
+      <a class="theme-toggle-btn is-accent" href="{{ '/feed.xml' | relative_url }}">Follow by RSS</a>
+    </section>
+
+    <nav class="post-pager" aria-label="More guides">
+      {%- if page.previous %}
+      <a class="pager-link reveal" href="{{ page.previous.url | relative_url }}">
+        <span class="toc-num">← Previous</span>
+        <span class="pager-title">{{ page.previous.title }}</span>
+      </a>
+      {%- endif %}
+      {%- if page.next %}
+      <a class="pager-link is-next reveal" href="{{ page.next.url | relative_url }}">
+        <span class="toc-num">Next →</span>
+        <span class="pager-title">{{ page.next.title }}</span>
+      </a>
+      {%- endif %}
+    </nav>
+  </footer>
 </article>
 
-{% if page.faq %}
+{%- if page.faq %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-  {% for q in page.faq %}
+  {%- for q in page.faq %}
     {
       "@type": "Question",
       "name": {{ q.q | jsonify }},
       "acceptedAnswer": { "@type": "Answer", "text": {{ q.a | jsonify }} }
     }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
+  {%- endfor %}
   ]
 }
 </script>
-{% endif %}
+{%- endif %}

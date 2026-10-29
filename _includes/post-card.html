@@ -1,0 +1,31 @@
+{%- assign words = post.content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | plus: 1 -%}
+<article class="post-card reveal">
+  <a class="post-card-link" href="{{ post.url | relative_url }}">
+    <div class="post-card-body">
+      <div class="chapter-tagline">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d %b %Y" }}</time>
+        {%- for tag in post.tags limit: 2 %}
+        <span class="topic-badge">{{ tag }}</span>
+        {%- endfor %}
+        <span>{{ minutes }} min read</span>
+      </div>
+      <h2 class="post-card-title">{{ post.title }}</h2>
+      {%- if post.description %}
+      <p class="post-card-excerpt">{{ post.description }}</p>
+      {%- endif %}
+      <span class="post-card-more">Read <span aria-hidden="true">→</span></span>
+    </div>
+    {%- if post.image_base %}
+    <figure class="post-card-image">
+      <img
+        srcset="{{ post.image_base }}?w=320&amp;q=70&amp;fm=webp&amp;fit=crop 320w,
+                {{ post.image_base }}?w=720&amp;q=70&amp;fm=webp&amp;fit=crop 720w"
+        sizes="(max-width: 960px) 100vw, 220px"
+        src="{{ post.image_base }}?w=720&amp;q=70&amp;fm=webp&amp;fit=crop"
+        alt="{{ post.image_alt }}"
+        loading="lazy">
+    </figure>
+    {%- endif %}
+  </a>
+</article>

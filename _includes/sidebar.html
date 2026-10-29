@@ -1,0 +1,54 @@
+<aside class="sidebar" id="sidebarNav" aria-label="Site index">
+  <div class="sidebar-header">
+    <div class="monograph-badge">
+      <span class="status-dot"></span> {{ site.axiom.sidebar_label | default: "Working Notes" }}
+    </div>
+    <a class="monograph-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="monograph-meta">{{ site.tagline }}</p>
+  </div>
+
+  <div class="sidebar-search">
+    <button class="search-input" type="button" data-site-search aria-label="Search this site" aria-haspopup="dialog">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span class="search-placeholder">Search the guides…</span>
+      <kbd class="search-kbd">⌘K</kbd>
+    </button>
+
+    {%- assign tag_list = site.tags | sort -%}
+    {%- if tag_list.size > 0 %}
+    <div class="filter-tags">
+      {%- for tag in tag_list limit: 6 %}
+      <a class="filter-tag" href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+
+  <nav class="sidebar-nav" id="tocNavList" aria-label="Contents">
+    {%- if page.layout == "post" or page.layout == "page" %}
+      <span class="sidebar-section-label" data-toc-label>Contents</span>
+      <div class="toc-entries" data-toc></div>
+      <div class="toc-fallback" data-toc-fallback hidden>
+        {% include navigation.html %}
+      </div>
+      {%- if page.layout == "post" %}
+      <a class="toc-back" href="{{ '/' | relative_url }}">← All guides</a>
+      {%- else %}
+      <a class="toc-back" href="{{ '/' | relative_url }}">← Home</a>
+      {%- endif %}
+    {%- else %}
+      <span class="sidebar-section-label">Navigate</span>
+      {% include navigation.html %}
+    {%- endif %}
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
+      <span id="themeLabel">Dark Theme ☾</span>
+    </button>
+    <a class="theme-toggle-btn is-accent" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </div>
+</aside>

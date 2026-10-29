@@ -1,0 +1,27 @@
+name: Preview build (temporary)
+on:
+  push:
+    branches: ["organic-engine/**"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with the GitHub Pages builder
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+          verbose: true
+      - name: Publish built files to build-preview branch
+        run: |
+          sudo chown -R "$(id -u)":"$(id -g)" _site
+          cd _site
+          git init -q -b build-preview
+          git config user.name "preview-bot"
+          git config user.email "preview-bot@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Preview of ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" build-preview

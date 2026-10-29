@@ -3,28 +3,38 @@ layout: default
 title: Starlink in rural Somerset, from a local customer
 description: Straight, sourced answers for Somerset homes weighing up Starlink satellite broadband, from planning rules to plans and real-world speeds. Independent, not affiliated with Starlink.
 ---
-<section class="intro wrap narrow">
-  <p class="eyebrow">Rural Signal</p>
-  <h1>Starlink in rural Somerset, from a local customer</h1>
-  <p class="lede">Straight answers for Somerset homes deciding whether Starlink is right for them: what it costs, what the rules are, and how it compares with the alternatives. Every guide cites its sources.</p>
-  <p>I'm Bala Danmeri, a Starlink customer in Wincanton. This site is independent: Starlink doesn't pay me to write it. If you decide to order, my <a href="{{ site.referral_url }}" rel="sponsored noopener">referral link</a> gives us both a reward from Starlink. <a href="{{ '/disclosure/' | relative_url }}">Here's how that works</a>.</p>
-</section>
+<div class="article-wrap landing">
+  <header class="masthead site-masthead landing-masthead">
+    <canvas class="field-canvas" data-field aria-hidden="true"></canvas>
+    <div class="masthead-meta-row">
+      <span>{{ site.title }} // {{ site.time | date: "%Y" }}</span>
+      <span>{{ site.posts.size }} {% if site.posts.size == 1 %}guide{% else %}guides{% endif %}</span>
+    </div>
+    <h1 class="monograph-h1 landing-title">{{ page.title }}</h1>
+    <p class="monograph-lead">Straight answers for Somerset homes deciding whether Starlink is right for them: what it costs, what the rules are, and how it compares with the alternatives.</p>
+    <div class="field-readout" aria-hidden="true">
+      <span>LIVE FIELD</span>
+      <span data-field-count>— vectors</span>
+      <span class="bar"><i data-field-bar></i></span>
+      <span data-field-flux>flux 0.00</span>
+    </div>
+  </header>
 
-<section class="wrap narrow" aria-labelledby="guides">
-  <h2 id="guides">Guides</h2>
-  <ul class="post-list">
-    {% for post in site.posts %}
-    <li class="post-card">
-      <a class="card-link" href="{{ post.url | relative_url }}">
-        {% if post.image_base %}
-        <img src="{{ post.image_base }}?w=640&q=70&fm=webp&fit=crop" width="640" height="427" alt="{{ post.image_alt }}" loading="lazy">
-        {% endif %}
-        <div class="card-text">
-          <h2>{{ post.title }}</h2>
-          <p>{{ post.description }}</p>
-        </div>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+  <section class="gh-content landing-content">
+    <p>I'm {{ site.author.name }}, a Starlink customer in Wincanton. This site is independent: Starlink doesn't pay me to write it, and every guide cites its sources. If you decide to order, my <a href="{{ site.referral_url }}" rel="sponsored noopener">referral link</a> gives us both a reward from Starlink. <a href="{{ '/disclosure/' | relative_url }}">Here's how that works</a>.</p>
+  </section>
+
+  <section class="landing-latest" aria-label="Latest guides">
+    <div class="landing-latest-head">
+      <h2 class="landing-latest-title">Latest guides</h2>
+      <a class="landing-latest-all" href="{{ '/tags/' | relative_url }}">By topic <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="post-feed">
+      {%- for post in site.posts %}
+        {% include post-card.html %}
+      {%- else %}
+      <p class="feed-empty">Nothing published here yet.</p>
+      {%- endfor %}
+    </div>
+  </section>
+</div>
