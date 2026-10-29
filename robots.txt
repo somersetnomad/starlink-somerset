@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://somersetnomad.github.io/starlink-somerset/sitemap.xml

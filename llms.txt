@@ -1,0 +1,10 @@
+# Rural Signal
+
+> Independent, sourced guides for rural Somerset (UK) homes considering Starlink satellite broadband, written by Bala Danmeri, a Starlink customer in Wincanton. Not affiliated with Starlink or SpaceX. Some links are disclosed referral links.
+
+## Guides
+- [Starlink Dish Planning Permission in Somerset](https://somersetnomad.github.io/starlink-somerset/starlink-dish-planning-permission-somerset/): Most Somerset houses can fit a Starlink dish without planning permission. Here's when you can't: listed buildings, conservation areas and roof limits.
+
+## About
+- [About](https://somersetnomad.github.io/starlink-somerset/about/): who writes the site and how guides are researched
+- [Referral disclosure](https://somersetnomad.github.io/starlink-somerset/disclosure/): how the referral link works

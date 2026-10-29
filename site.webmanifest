@@ -1,0 +1,12 @@
+{
+  "name": "Rural Signal",
+  "short_name": "Rural Signal",
+  "start_url": "/starlink-somerset/",
+  "display": "standalone",
+  "background_color": "#fcfcfb",
+  "theme_color": "#2f6f5e",
+  "icons": [
+    { "src": "/starlink-somerset/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/starlink-somerset/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

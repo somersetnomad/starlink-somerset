@@ -1,0 +1,185 @@
+/* Rural Signal: site layer on top of Axiom (assets/axiom/css/screen.css).
+   Mirrors what Ghost would inject (accent colour) and styles the pieces a
+   Jekyll site needs that Ghost provided: search, templates, CTA modules. */
+
+:root { --ghost-accent-color: #2f6f5e; }
+[data-theme="dark"] { --text-accent: #74c4aa; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---------- Answer box, notes, tables ---------- */
+.gh-content .answer {
+  padding: 18px 22px;
+  border-radius: 0 10px 10px 0;
+  background: var(--accent-bg);
+  box-shadow: inset 3px 0 0 var(--text-accent);
+  font-size: 1.08rem;
+}
+.gh-content .answer > * + * { margin-top: 12px; }
+
+.gh-content .table-scroll {
+  overflow-x: auto;
+  border-radius: 10px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+.gh-content .table-scroll table { min-width: 520px; }
+.gh-content .table-scroll th { background: var(--bg-surface); font-weight: 600; }
+.gh-content .table-scroll tr:last-child td { border-bottom: 0; }
+
+/* ---------- Referral call-to-action (Axiom interactive module) ---------- */
+.gh-content .cta-module p { margin: 0; font-family: var(--font-body); font-size: 1.05rem; }
+.gh-content .cta-module p + p { margin-top: 10px; }
+.gh-content .cta-module .cta-actions { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.gh-content a.cta-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--text-accent);
+  color: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform var(--dur-bouncy) var(--ease-bouncy), box-shadow var(--dur-snappy) var(--ease-snappy);
+}
+.gh-content a.cta-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.gh-content a.cta-btn:active { transform: scale(0.96); transition-duration: 80ms; }
+.gh-content .cta-module .disclose {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+/* ---------- Post footer extras ---------- */
+.author-module .subscribe-copy { margin-bottom: 14px; }
+.author-module .theme-toggle-btn { text-decoration: none; display: inline-block; margin-right: 6px; }
+
+.footer-disclosure {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+.footer-disclosure p + p { margin-top: 6px; }
+.footer-disclosure a { text-decoration: underline; text-underline-offset: 2px; }
+
+.landing-content { margin-bottom: 40px; }
+
+/* ---------- Topics page ---------- */
+.tag-group { margin-top: 56px; scroll-margin-top: 40px; }
+.tag-group-head { align-items: baseline; margin-bottom: 18px; }
+.tag-group-title { font-family: var(--font-heading); font-weight: 400; font-size: 1.6rem; color: var(--text-primary); text-transform: none; letter-spacing: -0.01em; }
+
+/* ---------- Episode template: player, timestamps, transcript ---------- */
+.episode-player audio { width: 100%; display: block; }
+.gh-content .timestamp {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-accent);
+  background: var(--accent-bg);
+  border: 0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: transform var(--dur-bouncy) var(--ease-bouncy);
+}
+.gh-content .timestamp:hover { transform: translateY(-1px) scale(1.05); }
+.gh-content .timestamp:active { transform: scale(0.92); transition-duration: 80ms; }
+
+.gh-content details.transcript-fold {
+  margin-top: 64px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  padding: 4px 22px;
+}
+.gh-content details.transcript-fold > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+}
+.gh-content details.transcript-fold > summary::-webkit-details-marker { display: none; }
+.gh-content details.transcript-fold > summary h2 { font-family: var(--font-heading); font-weight: 400; font-size: 1.6rem; scroll-margin-top: 40px; }
+.gh-content details.transcript-fold > summary::after {
+  content: 'Show';
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-accent);
+}
+.gh-content details.transcript-fold[open] > summary::after { content: 'Hide'; }
+.gh-content details.transcript-fold > *:not(summary) { margin: 0 0 18px; font-size: 1rem; }
+
+/* ---------- Essay template: reading focus + margin notes ---------- */
+.post-template-custom-essay .gh-content > p,
+.post-template-custom-essay .gh-content > ul,
+.post-template-custom-essay .gh-content > ol,
+.post-template-custom-essay .gh-content > blockquote {
+  transition: opacity 0.6s ease;
+}
+.post-template-custom-essay .gh-content.has-focus > p:not(.is-focus),
+.post-template-custom-essay .gh-content.has-focus > ul:not(.is-focus),
+.post-template-custom-essay .gh-content.has-focus > ol:not(.is-focus),
+.post-template-custom-essay .gh-content.has-focus > blockquote:not(.is-focus) { opacity: 0.42; }
+
+@media (min-width: 1640px) {
+  .gh-content.margin-notes { position: relative; }
+  .gh-content.margin-notes > .sidenote {
+    position: absolute;
+    right: -250px;
+    width: 220px;
+    height: auto !important;
+    visibility: visible !important;
+    overflow: visible;
+  }
+  .gh-content.margin-notes > .sidenote .sidenote-box {
+    opacity: 1 !important;
+    transform: none !important;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .gh-content.margin-notes .sidenote-ref { cursor: default; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-template-custom-essay .gh-content.has-focus > * { opacity: 1 !important; }
+}
+
+/* ---------- Search (replaces Ghost's built-in search) ---------- */
+.site-search { position: fixed; inset: 0; z-index: 10000; display: flex; justify-content: center; align-items: flex-start; padding: 12vh 16px 16px; }
+.site-search[hidden] { display: none; }
+.site-search-scrim { position: absolute; inset: 0; background: var(--scrim); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.site-search-panel { position: relative; width: min(640px, 100%); margin: 0; max-height: 76vh; display: flex; flex-direction: column; }
+.site-search-panel:hover { transform: none; }
+.site-search-input {
+  width: 100%;
+  font: 400 1.15rem/1.4 var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--hairline-strong);
+  padding: 12px 14px;
+}
+.site-search-input:focus { outline: none; box-shadow: 0 0 0 2px var(--text-accent); }
+.site-search-results { list-style: none; margin-top: 12px; overflow-y: auto; }
+.site-search-results li + li { border-top: 1px solid var(--hairline); }
+.site-search-results a { display: block; padding: 12px 6px; text-decoration: none; border-radius: 6px; }
+.site-search-results a:hover, .site-search-results a:focus-visible { background: var(--accent-bg); }
+.site-search-results .r-title { display: block; font-family: var(--font-heading); font-size: 1.15rem; color: var(--text-primary); }
+.site-search-results .r-meta { display: block; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-top: 2px; }
+.site-search-results .r-text { display: block; font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px; }
+.site-search-results mark { background: var(--accent-highlight); color: inherit; border-radius: 2px; }
+.site-search-empty { padding: 12px 6px; color: var(--text-tertiary); font-size: 0.9rem; }

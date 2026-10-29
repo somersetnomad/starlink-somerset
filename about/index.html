@@ -1,0 +1,188 @@
+<!doctype html><html lang="en-GB" data-scheme="System">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><script>
+    (function () {
+      var d = document.documentElement;
+      var s = (d.getAttribute('data-scheme') || 'System').toLowerCase();
+      var t = null;
+      try { t = localStorage.getItem('axiom-theme'); } catch (e) {}
+      if (!t) {
+        t = (s === 'light' || s === 'dark') ? s
+          : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      }
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preload" href="/starlink-somerset/assets/axiom/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/starlink-somerset/assets/axiom/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/starlink-somerset/assets/axiom/css/screen.css">
+  <link rel="stylesheet" href="/starlink-somerset/assets/css/rural.css">
+
+  <link rel="icon" href="/starlink-somerset/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/starlink-somerset/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/starlink-somerset/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/starlink-somerset/site.webmanifest">
+  <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1011" media="(prefers-color-scheme: dark)">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>About Rural Signal | Rural Signal</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="About Rural Signal" />
+<meta name="author" content="Bala Danmeri" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="Who writes Rural Signal, why it exists, and how its guides are researched." />
+<meta property="og:description" content="Who writes Rural Signal, why it exists, and how its guides are researched." />
+<link rel="canonical" href="https://somersetnomad.github.io/starlink-somerset/about/" />
+<meta property="og:url" content="https://somersetnomad.github.io/starlink-somerset/about/" />
+<meta property="og:site_name" content="Rural Signal" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="About Rural Signal" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Bala Danmeri","url":"https://somersetnomad.github.io/starlink-somerset/about/"},"description":"Who writes Rural Signal, why it exists, and how its guides are researched.","headline":"About Rural Signal","name":"Rural Signal","url":"https://somersetnomad.github.io/starlink-somerset/about/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link type="application/atom+xml" rel="alternate" href="https://somersetnomad.github.io/starlink-somerset/feed.xml" title="Rural Signal" />
+</head>
+<body class="page-template" data-inertial="on" data-field-density="Balanced">
+
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-a" data-blob="a"></div>
+    <div class="blob blob-b" data-blob="b"></div>
+  </div>
+
+  <div id="progress-tracker" aria-hidden="true"></div>
+
+  <header class="mobile-bar" id="mobileBar">
+    <a class="mobile-bar-title" href="/starlink-somerset/">Rural Signal</a>
+    <button class="mobile-menu-btn" id="mobileMenuToggle" type="button" aria-label="Toggle index" aria-expanded="false" aria-controls="sidebarNav">
+      Index ☰
+    </button>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebarNav" aria-label="Site index">
+  <div class="sidebar-header">
+    <div class="monograph-badge">
+      <span class="status-dot"></span> Field Notes
+    </div>
+    <a class="monograph-title" href="/starlink-somerset/">Rural Signal</a>
+    <p class="monograph-meta">An independent Starlink customer's notes on rural broadband in Somerset</p>
+  </div>
+
+  <div class="sidebar-search">
+    <button class="search-input" type="button" data-site-search aria-label="Search this site" aria-haspopup="dialog">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span class="search-placeholder">Search the guides…</span>
+      <kbd class="search-kbd">⌘K</kbd>
+    </button>
+    <div class="filter-tags">
+      <a class="filter-tag" href="/starlink-somerset/tags/#installation">Installation</a>
+      <a class="filter-tag" href="/starlink-somerset/tags/#planning">Planning</a>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav" id="tocNavList" aria-label="Contents">
+      <span class="sidebar-section-label" data-toc-label>Contents</span>
+      <div class="toc-entries" data-toc></div>
+      <div class="toc-fallback" data-toc-fallback hidden>
+        <a class="toc-item nav-guides" href="/starlink-somerset/">
+  <span class="toc-label">Guides</span>
+</a><a class="toc-item nav-topics" href="/starlink-somerset/tags/">
+  <span class="toc-label">Topics</span>
+</a><a class="toc-item nav-about nav-current" href="/starlink-somerset/about/" aria-current="page">
+  <span class="toc-label">About</span>
+</a><a class="toc-item nav-disclosure" href="/starlink-somerset/disclosure/">
+  <span class="toc-label">Disclosure</span>
+</a>
+      </div>
+      <a class="toc-back" href="/starlink-somerset/">← Home</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
+      <span id="themeLabel">Dark Theme ☾</span>
+    </button>
+    <a class="theme-toggle-btn is-accent" href="/starlink-somerset/feed.xml">RSS</a>
+  </div>
+</aside>
+
+
+    <main class="content-canvas" id="site-main">
+      <article class="article-wrap page">
+  <header class="masthead post-masthead">
+    <canvas class="field-canvas" data-field data-field-scale="0.7" aria-hidden="true"></canvas>
+    <h1 class="monograph-h1">About Rural Signal</h1>
+    <p class="monograph-lead">Who writes Rural Signal, why it exists, and how its guides are researched.</p>
+  </header>
+
+  <section class="gh-content chapter-body" id="postContent">
+    <p>I’m Bala Danmeri. I live in Wincanton, Somerset, and I’m a Starlink customer. I also write science fiction and metaphysical philosophy, and trade as Noor Intelligence.</p>
+
+<p>Rural Signal exists because the answers I wanted before ordering Starlink were scattered across forums, council pages and sales sites. Here I put them in one place, for Somerset homes specifically.</p>
+
+<h2 id="how-the-guides-are-written">How the guides are written</h2>
+
+<ul>
+  <li>Every factual claim links to its source: legislation, council pages, Starlink’s own specifications, or independent test data.</li>
+  <li>Prices and rules change, so each guide shows the date it was last checked.</li>
+  <li>Where something depends on your exact house or address, the guide says so and tells you who to ask.</li>
+  <li>If Starlink isn’t the right answer for you, the guide says that too.</li>
+</ul>
+
+<h2 id="independence">Independence</h2>
+
+<p>Rural Signal is not affiliated with, endorsed by, or acting for Starlink or SpaceX. I’m not an installer, reseller or agent. Some links are personal referral links; the <a href="/starlink-somerset/disclosure/">disclosure page</a> explains exactly what that means.</p>
+
+<h2 id="follow-and-contact">Follow and contact</h2>
+
+<p>New guides appear in the <a href="/starlink-somerset/feed.xml">RSS feed</a>. Spotted something out of date? Email <a href="mailto:info@baladanmeri.com">info@baladanmeri.com</a>.</p>
+
+  </section>
+</article>
+
+      <footer class="site-footer">
+  <div class="footer-disclosure">
+    <p>Rural Signal is written by Bala Danmeri, a Starlink customer in Wincanton, Somerset. It is independent and not affiliated with, or endorsed by, Starlink or SpaceX.</p>
+    <p>Some links are referral links: if you're new to Starlink and order through one, we both receive a reward from Starlink. <a href="/starlink-somerset/disclosure/">How that works</a>.</p>
+  </div>
+  <div class="site-footer-inner">
+    <span>Rural Signal &copy; 2026</span>
+    <nav class="site-footer-nav" aria-label="Secondary">
+      <a href="/starlink-somerset/about/">About</a>
+      <a href="/starlink-somerset/disclosure/">Disclosure</a>
+      <a href="/starlink-somerset/tags/">Topics</a>
+      <a href="/starlink-somerset/feed.xml">RSS</a>
+    </nav>
+    <span>Photos via <a href="https://unsplash.com/?utm_source=rural_signal&amp;utm_medium=referral">Unsplash</a></span>
+  </div>
+</footer>
+
+    </main>
+  </div>
+
+  <div class="site-search" id="siteSearch" role="dialog" aria-modal="true" aria-label="Search the guides" hidden data-index="/starlink-somerset/search.json">
+  <div class="site-search-scrim" data-search-close></div>
+  <div class="site-search-panel interactive-module">
+    <div class="module-header">
+      <div class="module-title"><span>Search // Rural Signal</span><span class="module-pill">⌘K</span></div>
+      <button class="theme-toggle-btn" type="button" data-search-close>Close</button>
+    </div>
+    <label class="visually-hidden" for="siteSearchInput">Search the guides</label>
+    <input class="site-search-input" id="siteSearchInput" type="search" placeholder="Planning, plans, speeds…" autocomplete="off" spellcheck="false">
+    <ol class="site-search-results" id="siteSearchResults" aria-live="polite"></ol>
+  </div>
+</div>
+
+
+  <script src="/starlink-somerset/assets/js/rural.js"></script>
+  <script src="/starlink-somerset/assets/axiom/js/axiom.js"></script>
+</body>
+</html>
