@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# Rural Signal
+
+> Independent, sourced guides for rural Somerset (UK) homes considering Starlink satellite broadband, written by Bala Danmeri, a Starlink customer in Wincanton. Not affiliated with Starlink or SpaceX. Some links are disclosed referral links.
+
+## Guides
+{% for post in site.posts %}- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description }}
+{% endfor %}
+## About
+- [About]({{ '/about/' | absolute_url }}): who writes the site and how guides are researched
+- [Referral disclosure]({{ '/disclosure/' | absolute_url }}): how the referral link works
