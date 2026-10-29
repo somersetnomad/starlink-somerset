@@ -1,0 +1,30 @@
+---
+layout: default
+title: Starlink in rural Somerset, from a local customer
+description: Straight, sourced answers for Somerset homes weighing up Starlink satellite broadband, from planning rules to plans and real-world speeds. Independent, not affiliated with Starlink.
+---
+<section class="intro wrap narrow">
+  <p class="eyebrow">Rural Signal</p>
+  <h1>Starlink in rural Somerset, from a local customer</h1>
+  <p class="lede">Straight answers for Somerset homes deciding whether Starlink is right for them: what it costs, what the rules are, and how it compares with the alternatives. Every guide cites its sources.</p>
+  <p>I'm Bala Danmeri, a Starlink customer in Wincanton. This site is independent: Starlink doesn't pay me to write it. If you decide to order, my <a href="{{ site.referral_url }}" rel="sponsored noopener">referral link</a> gives us both a reward from Starlink. <a href="{{ '/disclosure/' | relative_url }}">Here's how that works</a>.</p>
+</section>
+
+<section class="wrap narrow" aria-labelledby="guides">
+  <h2 id="guides">Guides</h2>
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-card">
+      <a class="card-link" href="{{ post.url | relative_url }}">
+        {% if post.image_base %}
+        <img src="{{ post.image_base }}?w=640&q=70&fm=webp&fit=crop" width="640" height="427" alt="{{ post.image_alt }}" loading="lazy">
+        {% endif %}
+        <div class="card-text">
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.description }}</p>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

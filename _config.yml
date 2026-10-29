@@ -1,0 +1,38 @@
+title: Rural Signal
+tagline: An independent Starlink customer's notes on rural broadband in Somerset
+description: Plain, sourced guides for Somerset homes weighing up Starlink satellite broadband, written by a local customer. Not affiliated with Starlink or SpaceX.
+url: https://somersetnomad.github.io
+baseurl: /starlink-somerset
+lang: en-GB
+timezone: Europe/London
+
+author:
+  name: Bala Danmeri
+  url: https://somersetnomad.github.io/starlink-somerset/about/
+
+referral_url: https://starlink.com/?referral=RC-DF-12222491-12560-83&app_source=share
+utm_source: rural_signal
+
+permalink: /:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

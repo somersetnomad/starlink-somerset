@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head wrap narrow">
+    <p class="eyebrow">{{ page.category_label | default: "Guide" }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      By <a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a>
+      · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+      {% if page.last_modified_at %}· Checked <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%-d %B %Y" }}</time>{% endif %}
+    </p>
+  </header>
+
+  {% if page.image %}
+  <figure class="hero">
+    <img src="{{ page.image }}"
+         srcset="{{ page.image_base }}?w=600&q=75&fm=webp&fit=crop 600w, {{ page.image_base }}?w=1000&q=75&fm=webp&fit=crop 1000w, {{ page.image_base }}?w=1600&q=75&fm=webp&fit=crop 1600w"
+         sizes="(max-width: 1100px) 100vw, 1100px"
+         width="{{ page.image_width }}" height="{{ page.image_height }}"
+         alt="{{ page.image_alt }}" fetchpriority="high">
+    <figcaption class="wrap narrow">{{ page.image_credit }}</figcaption>
+  </figure>
+  {% endif %}
+
+  <div class="post-body wrap narrow">
+    {{ content }}
+
+    <aside class="author-box">
+      <p>I'm <strong>{{ site.author.name }}</strong>. I live in Wincanton, Somerset, and I'm a Starlink customer. I write Rural Signal to give neighbours the straight answers I wanted before ordering. <a href="{{ '/about/' | relative_url }}">More about me</a>.</p>
+    </aside>
+  </div>
+</article>
+
+{% if page.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {% for q in page.faq %}
+    {
+      "@type": "Question",
+      "name": {{ q.q | jsonify }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ q.a | jsonify }} }
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+}
+</script>
+{% endif %}

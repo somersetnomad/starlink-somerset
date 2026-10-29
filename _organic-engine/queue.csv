@@ -1,0 +1,7 @@
+id,query,buyer_stage,ai_prompt,offer_fit,priority,status,url,published,last_checked
+1,starlink planning permission uk / somerset,decision,"Do I need planning permission for a Starlink dish in Somerset?",5,240,pr_open,/starlink-dish-planning-permission-somerset/,,2026-10-29
+2,is starlink worth it rural somerset,decision,"Is Starlink worth it for a rural home in Somerset?",5,500,needs_owner,,,2026-10-29
+3,starlink vs 4g home broadband rural uk,consideration,"Is Starlink better than 4G or 5G home broadband in the countryside?",5,400,needs_owner,,,2026-10-29
+4,which starlink plan uk 100mbps vs 200mbps vs max,decision,"Which Starlink plan should I get for a UK home?",5,300,needs_owner,,,2026-10-29
+5,starlink or wait for full fibre gigabit voucher,consideration,"Should I get Starlink or wait for full fibre in rural England?",4,192,queued,,,2026-10-29
+6,starlink roam uk caravan campervan,decision,"Is Starlink Roam worth it for a UK caravan or campervan?",4,160,needs_owner,,,2026-10-29
