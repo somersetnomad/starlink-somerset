@@ -130,6 +130,8 @@ Class H covers houses. If you live in a flat, the [Planning Portal's antenna gui
 
 If a dish needed permission and didn't have it, the council can ask for a retrospective application. If that's refused, it can require you to move or remove the dish at your own expense.[^9] For most houses the fix is simple: move the dish to a rear slope, wall or the garden.
 
+Still deciding between Starlink and waiting for fibre? My guide to [Starlink or full fibre in Somerset]({{ '/starlink-or-wait-for-full-fibre-somerset/' | relative_url }}) shows how to check whether fibre is really coming to your address.
+
 <section class="interactive-module cta-module">
   <div class="module-header">
     <div class="module-title"><span>Next step // Prices for your address</span><span class="module-pill">Referral link</span></div>

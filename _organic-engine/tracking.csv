@@ -1,2 +1,3 @@
 date,url,query,source,result,ai_cited,notes
 2026-10-29,(none),starlink somerset,spot_check,"no local customer content ranking; results were Somerset PA directory and Devon installers",n/a,baseline before launch
+2026-11-03,/starlink-dish-planning-permission-somerset/,starlink planning permission somerset,spot_check,"not in top 20 of a web search (results: Somerset Council planning PDFs, local notice portals, Starlink ground-station news); post is 5 days old",n/a,web search tool, not Google
